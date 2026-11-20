@@ -4,19 +4,34 @@
 
 ## Sobre
 
-Pequeno rascunho em C (`SobrePonteiros.c`) para estudar a diferença entre passagem por valor e por referência. A função `incrementa` recebe uma cópia do contador e o incrementa, mostrando que o valor original no `main` não muda quando o parâmetro não é um ponteiro.
+Pequeno programa em C (`SobrePonteiros.c`) para estudar a diferença entre passagem por valor e por referência:
+
+- `incrementa(int valor)` recebe uma **cópia** do contador e a incrementa; o valor no `main` continua o mesmo.
+- `incrementaPorReferencia(int *valor)` recebe o **endereço** do contador (`&contador`) e incrementa o valor apontado (`(*valor)++`); o valor no `main` muda.
 
 ## Tecnologias
 
 - Linguagem C
 
-## Observação
-
-O código ainda é um rascunho e não compila como está: o `main` declara `cont`, mas usa `contador`, e falta um `;` na função `incrementa`. Depois de corrigir esses pontos:
+## Como compilar e executar
 
 ```bash
-gcc SobrePonteiros.c -o ponteiros
+gcc -Wall -std=c99 SobrePonteiros.c -o ponteiros
 ./ponteiros
+```
+
+Saída esperada:
+
+```
+O contador vale 10
+antes de incrementar: 10
+ depois de incrementar: 11
+--------
+O contador agora vale: 10 (nao mudou)
+antes de incrementar: 10
+ depois de incrementar: 11
+--------
+O contador agora vale: 11 (mudou)
 ```
 
 ## Autor
